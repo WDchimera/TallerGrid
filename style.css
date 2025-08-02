@@ -110,21 +110,18 @@ body {
 }
 
 
-
-/* Barra de filtros */
 .filtros {
   position: fixed;
   top: 0;
-  left: -250px; /* Ocultar el menú inicialmente fuera de la pantalla */
+  left: -250px;
   width: 250px;
   height: 100%;
   background: #ecf0f1;
   box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
   padding: 30px;
-  transition: left 0.3s ease; /* Desplazamiento suave */
+  transition: left 0.3s ease;
 }
 
-/* El menú hamburguesa */
 .menu-toggle {
   position: fixed;
   top: 20px;
@@ -143,19 +140,16 @@ body {
   transition: all 0.3s ease;
 }
 
-/* El menú de filtros (contenido) */
 .filter-content {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-/* Estilos del menú cuando se despliega */
 .filtros.show {
-  left: 0; /* Muestra el menú */
+  left: 0;
 }
 
-/* Animación para las líneas del ícono hamburguesa */
 .menu-toggle.open .menu-icon:nth-child(1) {
   transform: rotate(45deg);
   top: 10px;
