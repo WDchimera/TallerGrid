@@ -1,0 +1,173 @@
+/* styles.css */
+body {
+  font-family: Arial, sans-serif;
+  background: #f8f8f8;
+  margin: 0;
+}
+
+.tienda-layout {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "sidebar main"
+    "footer footer";
+  grid-template-columns: 250px 1fr;
+  gap: 1rem;
+  padding: 1rem;
+  min-height: 100vh;
+}
+
+.tienda-header {
+  grid-area: header;
+  background: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+.filtros {
+  grid-area: sidebar;
+  background: #ecf0f1;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.productos-grid {
+  grid-area: main;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.producto {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.producto:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.producto img {
+  width: 100%;
+  height: 300px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+}
+
+
+.destacado {
+  grid-column: span 2;
+  grid-row: span 2;
+  background: #f39c12;
+  color: white;
+  font-weight: bold;
+}
+
+.destacado img {
+  width: 100%;
+  height:70%;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.tienda-footer {
+  grid-area: footer;
+  background: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+@media (max-width: 992px) {
+  .productos-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .tienda-layout {
+    grid-template-areas:
+      "header"
+      "sidebar"
+      "main"
+      "footer";
+    grid-template-columns: 1fr;
+  }
+  .productos-grid {
+    grid-template-columns: 1fr;
+  }
+  .destacado {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+
+}
+
+
+
+/* Barra de filtros */
+.filtros {
+  position: fixed;
+  top: 0;
+  left: -250px; /* Ocultar el menú inicialmente fuera de la pantalla */
+  width: 250px;
+  height: 100%;
+  background: #ecf0f1;
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  transition: left 0.3s ease; /* Desplazamiento suave */
+}
+
+/* El menú hamburguesa */
+.menu-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.menu-icon {
+  width: 30px;
+  height: 4px;
+  background-color: #333;
+  margin: 6px 0;
+  transition: all 0.3s ease;
+}
+
+/* El menú de filtros (contenido) */
+.filter-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Estilos del menú cuando se despliega */
+.filtros.show {
+  left: 0; /* Muestra el menú */
+}
+
+/* Animación para las líneas del ícono hamburguesa */
+.menu-toggle.open .menu-icon:nth-child(1) {
+  transform: rotate(45deg);
+  top: 10px;
+}
+
+.menu-toggle.open .menu-icon:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.open .menu-icon:nth-child(3) {
+  transform: rotate(-45deg);
+  top: -10px;
+}
+
+
